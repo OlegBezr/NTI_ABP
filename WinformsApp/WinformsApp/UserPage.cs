@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WinformsApp
 {
-    public partial class Form1 : Form
+    public partial class UserPage : Form
     {
-        public Form1()
+        public UserPage()
         {
             InitializeComponent();
         }

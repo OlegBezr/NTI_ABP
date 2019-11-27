@@ -2,6 +2,8 @@
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Data;
+using System.Threading;
 
 namespace WinformsApp
 {
@@ -47,34 +49,40 @@ namespace WinformsApp
         {
             using (connection = new SqlConnection(connectionString))
             {
+                MessageBox.Show(username + ' ' + password, "EnteredInfo");
+
                 connection.Open();
-                SqlCommand com = new SqlCommand();
-                com.Connection = connection;
-                com.CommandText = "SELECT * FROM Users";
-                SqlDataReader sqlDataReader = com.ExecuteReader();
+                SqlCommand com;
+                int count;
+                using (com = new SqlCommand())
+                { 
+                    com.Connection = connection;
+                    com.CommandText = String.Format("SELECT count(*) FROM Users WHERE Username='{0}' and Password='{1}'", username, password);
+                    count = Convert.ToInt32(com.ExecuteScalar());
+                }
 
-                if (sqlDataReader.Read())
+                if (count > 0)
+                { 
+                    MessageBox.Show("Login Successful!", "Congrates");
+                    Close();
+                    Thread th = new Thread(Change_Form);
+                    th.SetApartmentState(ApartmentState.STA);
+                    th.Start();
+                    return true;
+                }
+                else
                 {
-                    MessageBox.Show("Your data: " + username + password, "Data");
-                    MessageBox.Show(sqlDataReader["Username"].ToString(), "Info1");
-                    MessageBox.Show(sqlDataReader["Password"].ToString(), "Info2");
-                    MessageBox.Show((username == sqlDataReader["Username"].ToString()).ToString());
-                    MessageBox.Show((username == sqlDataReader["Password"].ToString()).ToString());
-
-                    if (username.Equals(sqlDataReader["Username"].ToString()) && password.Equals(sqlDataReader["Password"].ToString()))
-                    { 
-                        MessageBox.Show("Login Successful!", "Congrates");
-                        return true;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Login failed!", "Error");
-                        return false;
-                    }
+                    MessageBox.Show("Login failed!", "Error");
+                    return false;
                 }
             }
 
             return false;
+        }
+
+        private void Change_Form(object obj)
+        {
+            Application.Run(new UserPage());
         }
     }
 }

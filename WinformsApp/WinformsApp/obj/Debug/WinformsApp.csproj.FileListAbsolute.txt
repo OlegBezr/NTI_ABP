@@ -10,3 +10,13 @@ D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\obj\Debug\WinformsApp
 D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\obj\Debug\WinformsApp.exe
 D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\obj\Debug\WinformsApp.pdb
 D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\obj\Debug\WinformsApp.UserPage.resources
+D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\obj\Debug\WinformsApp.AdminPage.resources
+D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\bin\Debug\System.Configuration.ConfigurationManager.dll
+D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\bin\Debug\System.Security.AccessControl.dll
+D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\bin\Debug\System.Security.Permissions.dll
+D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\bin\Debug\System.Security.Principal.Windows.dll
+D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\bin\Debug\System.Configuration.ConfigurationManager.xml
+D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\bin\Debug\System.Security.AccessControl.xml
+D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\bin\Debug\System.Security.Permissions.xml
+D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\bin\Debug\System.Security.Principal.Windows.xml
+D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\obj\Debug\WinformsApp.csproj.CopyComplete

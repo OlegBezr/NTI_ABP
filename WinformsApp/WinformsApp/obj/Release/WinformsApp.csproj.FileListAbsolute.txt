@@ -1,0 +1,13 @@
+D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\bin\Release\CompanyInfo.mdf
+D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\bin\Release\CompanyInfo_log.ldf
+D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\bin\Release\WinformsApp.exe.config
+D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\bin\Release\WinformsApp.exe
+D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\bin\Release\WinformsApp.pdb
+D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\obj\Release\WinformsApp.csprojAssemblyReference.cache
+D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\obj\Release\WinformsApp.AdminPage.resources
+D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\obj\Release\WinformsApp.LoginPage.resources
+D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\obj\Release\WinformsApp.Properties.Resources.resources
+D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\obj\Release\WinformsApp.UserPage.resources
+D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\obj\Release\WinformsApp.csproj.GenerateResource.cache
+D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\obj\Release\WinformsApp.exe
+D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\obj\Release\WinformsApp.pdb

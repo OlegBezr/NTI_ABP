@@ -16,5 +16,36 @@ namespace WinformsApp
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (textBox1.Text == "USER")
+            {
+                textBox1.Text = "";
+            }
+        }
+
+        private void textBox2_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (textBox2.Text == "###")
+            {
+                textBox2.Text = "";
+            }
+        }
     }
 }

@@ -49,25 +49,34 @@ namespace WinformsApp
         {
             using (connection = new SqlConnection(connectionString))
             {
-                MessageBox.Show(username + ' ' + password, "EnteredInfo");
-
                 connection.Open();
                 SqlCommand com;
-                int count;
+                SqlDataReader reader;
+                bool checkUser = false;
+                int id = 1;
                 using (com = new SqlCommand())
                 { 
                     com.Connection = connection;
-                    com.CommandText = String.Format("SELECT count(*) FROM Users WHERE Username='{0}' and Password='{1}'", username, password);
-                    count = Convert.ToInt32(com.ExecuteScalar());
+                    com.CommandText = String.Format("SELECT * FROM Users");
+                    using (reader = com.ExecuteReader())
+                        while (reader.Read())
+                        {
+                            if (username.Equals(reader["Username"].ToString()) && password.Equals(reader["Password"].ToString()))
+                            {
+                                checkUser = true;
+                                id = Convert.ToInt32(reader["Id"]);
+                                break;
+                            }
+                        }
                 }
 
-                if (count > 0)
+                if (checkUser)
                 { 
                     MessageBox.Show("Login Successful!", "Congrates");
-                    Close();
-                    Thread th = new Thread(Change_Form);
-                    th.SetApartmentState(ApartmentState.STA);
-                    th.Start();
+                    this.Hide();
+                    UserPage userPage = new UserPage(id);
+                    userPage.ShowDialog();
+                    this.Close();
                     return true;
                 }
                 else
@@ -78,11 +87,6 @@ namespace WinformsApp
             }
 
             return false;
-        }
-
-        private void Change_Form(object obj)
-        {
-            Application.Run(new UserPage());
         }
     }
 }

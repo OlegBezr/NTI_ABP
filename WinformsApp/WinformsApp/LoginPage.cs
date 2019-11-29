@@ -73,6 +73,7 @@ namespace WinformsApp
                 if (checkUser)
                 { 
                     MessageBox.Show("Login Successful!", "Congrates");
+                    Create_Login_Log(id);
                     this.Hide();
                     UserPage userPage = new UserPage(id);
                     userPage.ShowDialog();
@@ -87,6 +88,32 @@ namespace WinformsApp
             }
 
             return false;
+        }
+
+        private void Create_Login_Log(int id)
+        {
+            using (connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand com;
+                try
+                {
+                    using (com = new SqlCommand())
+                    {
+                        com.Connection = connection;
+                        com.CommandText = String.Format("insert into Logs(ComputerName, LoginTime, UserId) values(@ComputerName, @LoginTime, @UserId)");
+                        com.Parameters.AddWithValue(@"ComputerName", SystemInformation.ComputerName);
+                        com.Parameters.AddWithValue(@"LoginTime", DateTime.Now);
+                        com.Parameters.AddWithValue(@"UserId", id);
+                        com.ExecuteNonQuery();
+                        connection.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
     }
 }

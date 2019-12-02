@@ -34,6 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Username = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.NotificationLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label3
@@ -125,11 +126,22 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // NotificationLabel
+            // 
+            this.NotificationLabel.AutoSize = true;
+            this.NotificationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.NotificationLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.NotificationLabel.Location = new System.Drawing.Point(83, 331);
+            this.NotificationLabel.Name = "NotificationLabel";
+            this.NotificationLabel.Size = new System.Drawing.Size(0, 29);
+            this.NotificationLabel.TabIndex = 15;
+            // 
             // LoginPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.NotificationLabel);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.textBox2);
@@ -151,6 +163,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label Username;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label NotificationLabel;
     }
 }
 

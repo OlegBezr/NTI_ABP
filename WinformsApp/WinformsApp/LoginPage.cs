@@ -11,12 +11,14 @@ namespace WinformsApp
     {
         SqlConnection connection;
         string connectionString;
+        int mistakes = 0;
+        int minutesBan = 3;
 
         public LoginPage()
         {
             InitializeComponent();
 
-            connectionString = ConfigurationManager.ConnectionStrings["WinformsApp.Properties.Settings.CompanyInfoConnectionString"].ConnectionString;
+            connectionString = ConfigurationManager.ConnectionStrings["WinformsApp.Properties.Settings.NTI_ABPConnectionString"].ConnectionString;
         }
 
         private void LoginPage_Load(object sender, EventArgs e)
@@ -26,7 +28,15 @@ namespace WinformsApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Check_User(textBox1.Text, textBox2.Text);
+            int timeBan = CheckTimeBlock();
+            if (timeBan > 0)
+            {
+                NotificationLabel.Text = String.Format("Login is banned. Wait for {0} minutes", timeBan);
+            }
+            else
+            {
+                CheckUser(textBox1.Text, textBox2.Text);
+            }
         }
 
         private void textBox1_MouseClick(object sender, MouseEventArgs e)
@@ -45,7 +55,42 @@ namespace WinformsApp
             }
         }
 
-        private bool Check_User(string username, string password)
+        private int CheckTimeBlock()
+        {
+            using (connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand com;
+                SqlDataReader reader;
+                using (com = new SqlCommand())
+                {
+                    com.Connection = connection;
+                    com.CommandText = String.Format("SELECT * FROM Ban WHERE Id = 1");
+                    using (reader = com.ExecuteReader())
+                        if (reader.Read())
+                        {
+                            if (reader["StartTime"] is DBNull)
+                            {
+                                return 0;
+                            }
+
+                            int timeBan = (int)(DateTime.Now.TimeOfDay - Convert.ToDateTime(reader["StartTime"]).TimeOfDay).TotalMinutes;
+                            if (timeBan < minutesBan)
+                            {
+                                return (int)(minutesBan - timeBan);
+                            }
+                            else
+                            {
+                                return 0;
+                            }
+                        }
+                }
+            }
+            MessageBox.Show("4", "Error");
+            return 0;
+        }
+
+        private bool CheckUser(string username, string password)
         {
             using (connection = new SqlConnection(connectionString))
             {
@@ -72,8 +117,7 @@ namespace WinformsApp
 
                 if (checkUser)
                 { 
-                    MessageBox.Show("Login Successful!", "Congrates");
-                    Create_Login_Log(id);
+                    CreateLoginLog(id);
                     this.Hide();
                     UserPage userPage = new UserPage(id);
                     userPage.ShowDialog();
@@ -82,7 +126,21 @@ namespace WinformsApp
                 }
                 else
                 {
-                    MessageBox.Show("Login failed!", "Error");
+                    mistakes++;
+                    NotificationLabel.Text = String.Format("Wrong username or password.\nNumber of tries: {0}", mistakes);
+
+                    if (mistakes >= 3)
+                    {
+                        using (com = new SqlCommand())
+                        {
+                            com.Connection = connection;
+                            com.CommandText = String.Format("UPDATE Ban SET StartTime = '{0}', Name = 'Smb' WHERE Id = 1", DateTime.Now);
+                            com.ExecuteNonQuery();
+                        }
+                        NotificationLabel.Text = String.Format("Login is banned. Wait for {0} minutes", minutesBan);
+                        mistakes = 0;
+                    }
+
                     return false;
                 }
             }
@@ -90,21 +148,22 @@ namespace WinformsApp
             return false;
         }
 
-        private void Create_Login_Log(int id)
+        private void CreateLoginLog(int id)
         {
             using (connection = new SqlConnection(connectionString))
             {
-                connection.Open();
                 SqlCommand com;
                 try
                 {
                     using (com = new SqlCommand())
                     {
                         com.Connection = connection;
-                        com.CommandText = String.Format("insert into Logs(ComputerName, LoginTime, UserId) values(@ComputerName, @LoginTime, @UserId)");
+                        com.CommandType = CommandType.Text;
+                        com.CommandText = "INSERT INTO Logs (ComputerName, LoginTime, UserId) VALUES (@ComputerName, @LoginTime, @UserId)";
                         com.Parameters.AddWithValue(@"ComputerName", SystemInformation.ComputerName);
                         com.Parameters.AddWithValue(@"LoginTime", DateTime.Now);
                         com.Parameters.AddWithValue(@"UserId", id);
+                        connection.Open();
                         com.ExecuteNonQuery();
                         connection.Close();
                     }

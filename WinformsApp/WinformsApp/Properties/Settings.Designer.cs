@@ -27,10 +27,21 @@ namespace WinformsApp.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\CompanyInfo.m" +
-            "df;Integrated Security=True")]
+            "df")]
         public string CompanyInfoConnectionString {
             get {
                 return ((string)(this["CompanyInfoConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\NTI_ABP.mdf;I" +
+            "ntegrated Security=True")]
+        public string NTI_ABPConnectionString {
+            get {
+                return ((string)(this["NTI_ABPConnectionString"]));
             }
         }
     }

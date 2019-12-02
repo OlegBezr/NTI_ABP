@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -80,22 +80,16 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminPage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AdminPage.Designer.cs">
-      <DependentUpon>AdminPage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CompanyInfoDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CompanyInfoDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="LoginPage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LoginPage.Designer.cs">
       <DependentUpon>LoginPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NTI_ABPDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NTI_ABPDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -105,9 +99,6 @@
     <Compile Include="UserPage.Designer.cs">
       <DependentUpon>UserPage.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AdminPage.resx">
-      <DependentUpon>AdminPage.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="LoginPage.resx">
       <DependentUpon>LoginPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -123,16 +114,16 @@
     <EmbeddedResource Include="UserPage.resx">
       <DependentUpon>UserPage.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="CompanyInfoDataSet.xsc">
-      <DependentUpon>CompanyInfoDataSet.xsd</DependentUpon>
+    <None Include="NTI_ABPDataSet.xsc">
+      <DependentUpon>NTI_ABPDataSet.xsd</DependentUpon>
     </None>
-    <None Include="CompanyInfoDataSet.xsd">
+    <None Include="NTI_ABPDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>CompanyInfoDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>NTI_ABPDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="CompanyInfoDataSet.xss">
-      <DependentUpon>CompanyInfoDataSet.xsd</DependentUpon>
+    <None Include="NTI_ABPDataSet.xss">
+      <DependentUpon>NTI_ABPDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -149,15 +140,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CompanyInfo.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="CompanyInfo_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>CompanyInfo.mdf</DependentUpon>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.7.2 %28x86 и x64%29</ProductName>
@@ -168,6 +150,15 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="NTI_ABP.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="NTI_ABP_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>NTI_ABP.mdf</DependentUpon>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -29,7 +29,7 @@ namespace WinformsApp
         public UserPage(int id)
         {
             InitializeComponent();
-            connectionString = ConfigurationManager.ConnectionStrings["WinformsApp.Properties.Settings.CompanyInfoConnectionString"].ConnectionString;
+            connectionString = ConfigurationManager.ConnectionStrings["WinformsApp.Properties.Settings.NTI_ABPConnectionString"].ConnectionString;
 
             this.id = id;
             Get_User_Data(id);
@@ -63,7 +63,7 @@ namespace WinformsApp
                 using (com = new SqlCommand())
                 {
                     com.Connection = connection;
-                    com.CommandText = String.Format("SELECT name FROM Role Where Id={0}", roleId);
+                    com.CommandText = String.Format("SELECT name FROM Roles Where Id={0}", roleId);
                     using (reader = com.ExecuteReader())
                         if (reader.Read())
                         {

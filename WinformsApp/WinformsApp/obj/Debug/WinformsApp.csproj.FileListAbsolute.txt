@@ -19,3 +19,4 @@ D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\bin\Debug\System.Secu
 D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\obj\Debug\WinformsApp.csproj.CopyComplete
 D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\bin\Debug\NTI_ABP.mdf
 D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\bin\Debug\NTI_ABP_log.ldf
+D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\obj\Debug\WinformsApp.AdminPage.resources

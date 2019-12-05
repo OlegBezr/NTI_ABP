@@ -16,7 +16,7 @@ namespace WinformsApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AdminPage());
+            Application.Run(new LoginPage());
         }
     }
 }

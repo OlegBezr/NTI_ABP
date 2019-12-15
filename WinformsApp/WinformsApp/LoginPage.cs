@@ -13,6 +13,7 @@ namespace WinformsApp
         string connectionString;
         int mistakes = 0;
         int minutesBan = 3;
+        int id = 1;
 
         public LoginPage()
         {
@@ -98,7 +99,6 @@ namespace WinformsApp
                 SqlCommand com;
                 SqlDataReader reader;
                 bool checkUser = false;
-                int id = 1;
                 using (com = new SqlCommand())
                 { 
                     com.Connection = connection;
@@ -115,7 +115,17 @@ namespace WinformsApp
                         }
                 }
 
-                if (checkUser)
+                //Is admin
+                if (checkUser && id == 1)
+                {
+                    CreateLoginLog(id);
+                    this.Hide();
+                    AdminPage adminPage = new AdminPage();
+                    adminPage.ShowDialog();
+                    this.Close();
+                    return true;
+                }
+                else if (checkUser)
                 { 
                     CreateLoginLog(id);
                     this.Hide();

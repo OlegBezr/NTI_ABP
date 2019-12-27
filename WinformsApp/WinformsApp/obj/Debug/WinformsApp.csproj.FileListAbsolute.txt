@@ -21,3 +21,7 @@ D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\bin\Debug\NTI_ABP.mdf
 D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\bin\Debug\NTI_ABP_log.ldf
 D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\obj\Debug\WinformsApp.AdminPage.resources
 D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\obj\Debug\WinformsApp.Storekeeper.resources
+D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\bin\Debug\EPPlus.dll
+D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\bin\Debug\EPPlus.xml
+D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\bin\Debug\IronXL.dll
+D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\bin\Debug\IronXL.xml

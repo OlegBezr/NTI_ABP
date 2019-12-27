@@ -115,22 +115,27 @@ namespace WinformsApp
                         }
                 }
 
+                //TODO: add checks of roles instead of this rubbish!!!
                 //Is admin
-                if (checkUser && id == 1)
+                if (checkUser)
                 {
                     CreateLoginLog(id);
                     this.Hide();
-                    AdminPage adminPage = new AdminPage();
-                    adminPage.ShowDialog();
-                    this.Close();
-                    return true;
-                }
-                else if (checkUser)
-                { 
-                    CreateLoginLog(id);
-                    this.Hide();
-                    UserPage userPage = new UserPage(id);
-                    userPage.ShowDialog();
+                    if (id == 1)
+                    {
+                        AdminPage adminPage = new AdminPage();
+                        adminPage.ShowDialog();
+                    }
+                    else if (id == 3)
+                    {
+                        Storekeeper storekeeperPage = new Storekeeper();
+                        storekeeperPage.ShowDialog();
+                    }
+                    else
+                    {
+                        UserPage userPage = new UserPage(id);
+                        userPage.ShowDialog();
+                    }
                     this.Close();
                     return true;
                 }

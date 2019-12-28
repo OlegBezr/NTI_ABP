@@ -31,6 +31,8 @@ namespace WinformsApp
         {
             InitializeComponent();
 
+            IronXL.License.LicenseKey = "IRONSTUDIO-225346179-443843-3F2132B-D81C16BC0-96ADD8-UEx9354304405A9F09-2037182459";
+
             connectionString = ConfigurationManager.ConnectionStrings["WinformsApp.Properties.Settings.NTI_ABPConnectionString"].ConnectionString;
         }
 
@@ -137,9 +139,10 @@ namespace WinformsApp
                 label1.Text = "Кол-во строк в плохом формате: " + (rowCounter - 2).ToString();
                 mistakes = mistakesWorkbook;
             }
-            catch
+            catch (Exception ex)
             {
-                label1.Text = "Выбранный вами файл используется другой программой!";
+                MessageBox.Show(ex.Message);
+                label1.Text = "Вероятно, выбранный вами файл используется другой программой!";
             }
         }
 

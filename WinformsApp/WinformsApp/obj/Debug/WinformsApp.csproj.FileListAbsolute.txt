@@ -1,7 +1,6 @@
 D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\bin\Debug\WinformsApp.exe.config
 D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\bin\Debug\WinformsApp.exe
 D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\bin\Debug\WinformsApp.pdb
-D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\obj\Debug\WinformsApp.csprojAssemblyReference.cache
 D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\obj\Debug\WinformsApp.LoginPage.resources
 D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\obj\Debug\WinformsApp.Properties.Resources.resources
 D:\GitProjects\AppCreation\NTI_ABP\WinformsApp\WinformsApp\obj\Debug\WinformsApp.csproj.GenerateResource.cache
